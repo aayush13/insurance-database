@@ -1,0 +1,19 @@
+.search-page{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+}
+.search-bar {
+    width: 100%;
+    padding: 10vh;
+    padding-bottom: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.ant-input-number {
+    width: 60%;
+}
+.ant-space {
+    width: 50%;
+}

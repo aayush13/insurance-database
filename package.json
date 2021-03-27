@@ -1,0 +1,23 @@
+{
+  "name": "bcg-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "client-install": "npm install --prefix ./client",
+    "server": "npm install",
+    "bundle": "npm run build --prefix ./client"
+  },
+  "author": "aayush",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.5",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
+  }
+}

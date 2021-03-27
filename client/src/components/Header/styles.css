@@ -1,0 +1,36 @@
+.header-root {
+    display: flex;
+    background: cadetblue;
+    padding: 0% 1%;
+    padding-bottom: 0%;
+    height: 11vh;
+}
+.logo {
+    font-size: 9vh;
+    color: white;
+    width: 20%;
+    cursor: pointer;
+}
+.user {
+    font-size: 5vh;
+    color: white;
+    width: 20%;
+    padding-top: 1%;
+    justify-content: flex-end;
+    display: flex;
+    cursor: pointer;
+}
+.group-icons {
+    padding: 0% 1%;
+}
+.header-title {
+    width: 60%;
+    text-align: center;
+}
+h1 {
+    margin: 0% 0%;
+    padding: 1% 0%;
+}
+a {
+    color: white !important;
+}

@@ -1,0 +1,22 @@
+.sub-title {
+    text-align: center;
+    margin-bottom: -1%;
+}
+
+canvas {
+    width: 80% !important;
+    height: 40% !important;
+}
+
+.chart-root { 
+    justify-content: center;
+    display: flex;
+    padding: 1% 5%;
+    flex-direction: column;
+}
+
+.loading-icon{
+    font-size: 12vh;
+    text-align: center;
+    padding: 10%;
+}
