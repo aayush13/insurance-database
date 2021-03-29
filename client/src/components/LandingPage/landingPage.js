@@ -100,31 +100,33 @@ const LandingPage = (props) => {
     let navToEdit = (data) => {
         return (
             <Link to="/editData"><span onClick={(e)=>{
-                console.log(data);
+                //console.log(data);
                 props.setRecord(data);
             }} style={{color: "blue", fontSize: '3vh',cursor: 'pointer'}}><BiEditAlt /></span></Link>
         )
     }
+
+    //search record by policy id / client id
     let searchRecord = (value) => {
-        setSearchResults(null)
+        setSearchResults(null);
         const url = "http://localhost:5000/routes/getClientDetails/"
-        console.log(document.getElementById('search').value);
+        //console.log(document.getElementById('search').value);
         let key = document.getElementById('search').value
         fetch(url+key)
         .then(response => {
             return response.json();
         })
         .then(res => {
-            console.log(res.data);
+            //console.log(res.data);
             setSearchResults(res.data);
         })
 
     }
     return (
         <div className="search-page">
+            <h2 id="name">Company Name</h2>
             <div className="search-bar">
-    
-                <div><Search placeholder="input search text" id ="search" /></div>
+                <div style={{width:'20%'}}><Search placeholder="Search by Client ID /Policy ID" id ="search" /></div>
                 <div><Button type="primary" icon={<AiOutlineSearch />} onClick={searchRecord} /></div>
             </div>
             <div>{searchResults === null? (<span className="loading-table"><FaSpinner /></span>): searchResults.length >0 ? (<Table scroll={{  y: 300 }} columns={columns} dataSource={searchResults} pagination={false}/>):(null)}</div>

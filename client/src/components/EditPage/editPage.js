@@ -14,8 +14,18 @@ const EditPage = (props) => {
         let keys = Object.keys(props.editRecord);
         props.updatePageRef(2);
         setRecordKeys(keys)
-        console.log(props);
+        //console.log(props);
     }, []);
+
+    //validate premium value
+    let validatePremium = (evt) => {
+        //console.log(evt.target.value);
+        if(parseInt(evt.target.value) > 1000000) {
+            evt.target.value = 1000000;
+        }
+    }
+
+    //create dynamic form
     let getForm = () =>{
         let form = recordKeys.map((entry,index) => {
             if(entry === '_id'){
@@ -32,7 +42,7 @@ const EditPage = (props) => {
                 return (
                     <div key={index} style={{width:'50%', padding:'1%', display:'flex'}}>
                         <label style={{width:'28%',textAlign:'right',paddingRight:'2%'}}>{schema[entry]}</label>
-                        <input type='number' max='1000000' id={entry} defaultValue={props.editRecord[entry]} name={entry} ></input>
+                        <input type='number' max='1000000' id={entry} defaultValue={props.editRecord[entry]} name={entry} onChange={validatePremium}></input>
                     </div>
                 )
             } else {
@@ -47,6 +57,7 @@ const EditPage = (props) => {
         return form;
     }
 
+    // edit client details
     let updateData = () => {
         const url = "http://localhost:5000/routes/updateData"
         let updatedValues = recordKeys.map((entry,index)=> {
@@ -80,7 +91,7 @@ const EditPage = (props) => {
                 closeOnClick={true}
             />
             <div><h1>Edit Customer Data</h1></div>
-            <div style={{display: 'flex', flexWrap:'wrap'}}>{getForm()}</div>
+            <div class="form">{getForm()}</div>
             <div className="updateButton"><Button style={{marginRight:'20%'}} type="primary" shape="round" size='large' onClick={()=> updateData()} >Update</Button></div>
         </div>
     )

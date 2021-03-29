@@ -7,7 +7,6 @@ let initialState = {
 }
 
 export default function(state = initialState, action) {
-    console.log(action,"-Action");
     switch (action.type) {
         case ActionTypes.SELECTED_RECORD : 
             return {

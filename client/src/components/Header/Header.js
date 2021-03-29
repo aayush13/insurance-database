@@ -6,7 +6,6 @@ import {FaUserAlt} from 'react-icons/fa';
 import {BiHome} from 'react-icons/bi';
 import {BsBarChart} from 'react-icons/bs';
 import './styles.css';
-import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 const Header = (props) => {
     return (

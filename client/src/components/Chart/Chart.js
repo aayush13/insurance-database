@@ -27,17 +27,17 @@ const Charts = (props) => {
                 let index = parseInt(value["_id"].replace('/',''));
                 policiesByMonth[index-1] = value.numberofbookings;
             })
-            console.log(policiesByMonth);
+            //console.log(policiesByMonth);
             setChartData(policiesByMonth);
         })
     }
 
     return (
         <div className="chart-root">
-            <div className="sub-title"><h2>Number of policies bought /month</h2></div>
+            <div className="sub-title"><h2>Number of Policies per month</h2></div>
             <div>
-                <span>Region  </span>
-                <Select style={{ width: 120 }} onChange={handleChange} placeholder="Select a Region">
+                <span style={{fontSize:'4vh'}}>Region  </span>
+                <Select style={{ width: '15%' }} onChange={handleChange} placeholder="Select a Region">
                     <Option value="North">NORTH</Option>
                     <Option value="South">SOUTH</Option>
                     <Option value="East">EAST</Option>

@@ -3,6 +3,11 @@
     text-align: right  !important;
 }
 
+.form {
+    display : flex;
+    flex-wrap :wrap;
+}
+
 button {
     margin-right: 10%;
 }
