@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {connect} from 'react-redux';
+import editActions from '../../actions/editActions';
 import { Select, Spin} from 'antd';
 import {FaSpinner} from 'react-icons/fa';
 import {Bar } from 'react-chartjs-2';
@@ -6,7 +8,10 @@ import './styles.css';
 const Option = Select;
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
-const Charts = () => {
+const Charts = (props) => {
+    useEffect(() =>{
+        props.updatePageRef(3);
+    }, []);
     const url = "http://localhost:5000/routes/policyChartData?area="
     const [chartData, setChartData] = useState(null); 
     const handleChange = (value) => {
@@ -48,7 +53,7 @@ const Charts = () => {
                         label: "# of Policies",
                         borderColor: "#3333ff",
                         fill: true,
-                        backgroundColor: "red"
+                        backgroundColor: "#5a8cd6"
                         },
 
                     ],
@@ -59,4 +64,9 @@ const Charts = () => {
     )
 }
 
-export default Charts;
+const mapStateToProps = (state) => ({
+    editRecord : state.edit.editRecord,
+    pageRef : state.edit.pageRef,
+});
+
+export default connect(mapStateToProps,editActions)(Charts);

@@ -1,0 +1,2 @@
+export const SELECTED_RECORD = 'SELECTED_RECORD';
+export const UPDATE_PAGE = 'UPDATE_PAGE';

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
+const {ObjectId} =  require('mongodb');
 const config = {
     port : 5000,
     mongoUri : "mongodb+srv://aayush:qwerty@123@cluster0.qoffs.mongodb.net/insurance?retryWrites=true&w=majority",
@@ -56,5 +57,28 @@ router.get('/policyChartData', (req,res) => {
             totalResults : result.length
         })
     });   
+})
+
+router.post('/updateData', (req,res) => { 
+    console.log(typeof(req.body));
+    let searchId = req.body["_id"];
+    delete req.body["_id"];
+    const client = new MongoClient(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+    client.connect(async(err) => {
+        if (err) throw err;
+        const coll = client.db("insurance").collection("client");
+        let query  = {_id : ObjectId (searchId)};
+        console.log(query,req.body);
+        await coll.findOneAndUpdate (query, {$set : req.body}, (error,doc) => {
+            if (error) throw error;
+            console.log("1 document updated");
+        })
+        res.json({
+           status: 200,
+           msg : "Record Updated"
+        })
+        client.close();
+    });   
+
 })
 module.exports = router;
