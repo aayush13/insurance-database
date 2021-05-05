@@ -8,7 +8,8 @@
     "dev": "nodemon index.js",
     "client-install": "npm install --prefix ./client",
     "server": "npm install",
-    "bundle": "npm run build --prefix ./client"
+    "bundle": "npm run build --prefix ./client",
+    "start": "nodemon index.js"
   },
   "author": "aayush",
   "license": "ISC",
